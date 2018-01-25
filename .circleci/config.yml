@@ -24,7 +24,7 @@ jobs:
     steps:
       - checkout:
           post:
-          - sudo export ANDROID_HOME=/usr/local/android-sdk-linux
+          - sudo export ANDROID_HOME=/opt/android/sdk
           - cp -r licenses/. $ANDROID_HOME/licenses
 
       # Download and cache dependencies
@@ -34,7 +34,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: ANDROID_HOME=/usr/local/android-sdk-linux gradle dependencies
+      - run: ANDROID_HOME=/opt/android/sdk gradle dependencies
 
       - save_cache:
           paths:
